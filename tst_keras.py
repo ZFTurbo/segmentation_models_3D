@@ -15,13 +15,14 @@ def tst_keras():
     # for keras
     import segmentation_models_3D as sm
 
-    model1 = sm.Unet('resnet18', input_shape=(64, 64, 64, 3), encoder_weights=None)
+    encoder_weights = None
+    model1 = sm.Unet('resnet18', input_shape=(64, 64, 64, 3), encoder_weights=encoder_weights)
     print(model1.summary())
-    model2 = sm.FPN('resnet34', input_shape=(64, 64, 64, 3), encoder_weights=None)
+    model2 = sm.FPN('resnet34', input_shape=(64, 64, 64, 3), encoder_weights=encoder_weights)
     print(model2.summary())
-    model3 = sm.Linknet('efficientnetb0', input_shape=(64, 64, 64, 3), encoder_weights=None)
+    model3 = sm.Linknet('efficientnetb0', input_shape=(64, 64, 64, 3), encoder_weights=encoder_weights)
     print(model3.summary())
-    model4 = sm.PSPNet('densenet121', input_shape=(96, 96, 96, 3), encoder_weights=None)
+    model4 = sm.PSPNet('densenet121', input_shape=(96, 96, 96, 3), encoder_weights=encoder_weights)
     print(model4.summary())
 
 
