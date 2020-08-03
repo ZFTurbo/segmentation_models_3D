@@ -16,6 +16,10 @@ This repository is based on great [segmentation_models](https://github.com/qubve
 * [classification_models_3D](https://github.com/ZFTurbo/classification_models_3D)
 * [efficientnet_3D](https://github.com/ZFTurbo/efficientnet_3D)
 
+### Installation
+
+`pip install segmentation-models-3D`
+
 ### Examples 
 
 ##### Loading model:

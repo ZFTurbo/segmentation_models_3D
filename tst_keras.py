@@ -15,7 +15,7 @@ def tst_keras():
     # for keras
     import segmentation_models_3D as sm
 
-    encoder_weights = None
+    encoder_weights = 'imagenet'
     model1 = sm.Unet('resnet18', input_shape=(64, 64, 64, 3), encoder_weights=encoder_weights)
     print(model1.summary())
     model2 = sm.FPN('resnet34', input_shape=(64, 64, 64, 3), encoder_weights=encoder_weights)
