@@ -12,7 +12,6 @@ if __name__ == '__main__':
 
 
 def tst_keras():
-    # for keras
     import segmentation_models_3D as sm
 
     encoder_weights = 'imagenet'
@@ -20,7 +19,7 @@ def tst_keras():
     print(model1.summary())
     model2 = sm.FPN('resnet34', input_shape=(64, 64, 64, 3), encoder_weights=encoder_weights)
     print(model2.summary())
-    model3 = sm.Linknet('efficientnetb0', input_shape=(64, 64, 64, 3), encoder_weights=encoder_weights)
+    model3 = sm.Linknet('efficientnetb0', input_shape=(64, 64, 64, 3), encoder_weights=None)
     print(model3.summary())
     model4 = sm.PSPNet('densenet121', input_shape=(96, 96, 96, 3), encoder_weights=encoder_weights)
     print(model4.summary())
