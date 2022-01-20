@@ -12,7 +12,7 @@ This repository is based on great [segmentation_models](https://github.com/qubve
 
 ### Requirements
 
-* tensorflow >= 2.3.2
+* tensorflow>=2.3.2
 * keras_applications>=1.0.8
 * [classification_models_3D](https://github.com/ZFTurbo/classification_models_3D)>=1.0.3
 * [efficientnet_3D](https://github.com/ZFTurbo/efficientnet_3D)>=1.0.2
