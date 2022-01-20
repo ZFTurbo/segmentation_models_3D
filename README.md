@@ -12,9 +12,12 @@ This repository is based on great [segmentation_models](https://github.com/qubve
 
 ### Requirements
 
-* keras >= 2.2.0 and tensorflow >= 1.13
-* [classification_models_3D](https://github.com/ZFTurbo/classification_models_3D)
-* [efficientnet_3D](https://github.com/ZFTurbo/efficientnet_3D)
+* tensorflow >= 2.3.2
+* keras_applications>=1.0.8
+* [classification_models_3D](https://github.com/ZFTurbo/classification_models_3D)>=1.0.3
+* [efficientnet_3D](https://github.com/ZFTurbo/efficientnet_3D)>=1.0.2
+
+**Note**: it's better not to install independent keras module.
 
 ### Installation
 
