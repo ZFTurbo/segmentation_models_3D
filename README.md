@@ -17,7 +17,9 @@ This repository is based on great [segmentation_models](https://github.com/qubve
 * [classification_models_3D](https://github.com/ZFTurbo/classification_models_3D)>=1.0.3
 * [efficientnet_3D](https://github.com/ZFTurbo/efficientnet_3D)>=1.0.2
 
-**Note**: it's better not to install independent keras module.
+**Note 1**: it's better not to install independent keras module.
+
+**Note 2**: If you have an error try to add the following line in your code `os.environ["KERAS_BACKEND"] = "tensorflow"`
 
 ### Installation
 
