@@ -16,6 +16,6 @@ setup(
     install_requires=[
         'tensorflow>=2.8.0',
         "keras_applications>=1.0.8",
-        "classification_models_3D>=1.0.4",
+        "classification_models_3D>=1.0.6",
     ],
 )
