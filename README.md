@@ -12,14 +12,10 @@ This repository is based on great [segmentation_models](https://github.com/qubve
 
 ### Requirements
 
-* tensorflow>=2.3.2
+* tensorflow>=2.8.0
 * keras_applications>=1.0.8
-* [classification_models_3D](https://github.com/ZFTurbo/classification_models_3D)>=1.0.3
-* [efficientnet_3D](https://github.com/ZFTurbo/efficientnet_3D)>=1.0.2
+* [classification_models_3D](https://github.com/ZFTurbo/classification_models_3D)>=1.0.6
 
-**Note 1**: it's better not to install independent keras module.
-
-**Note 2**: If you have an error try to add the following line in your code `os.environ["KERAS_BACKEND"] = "tensorflow"`
 
 ### Installation
 
@@ -32,19 +28,58 @@ This repository is based on great [segmentation_models](https://github.com/qubve
 ```python
 import segmentation_models_3D as sm
 
-model1 = sm.Unet('resnet34', encoder_weights='imagenet')
+model1 = sm.Unet(
+    'resnet34', 
+    encoder_weights='imagenet'
+)
+
 # binary segmentation (this parameters are default when you call Unet('resnet34')
-model2 = sm.FPN('densenet121', classes=1, activation='sigmoid')
+model2 = sm.FPN(
+    'densenet121', 
+    classes=1, 
+    activation='sigmoid'
+)
+
 # multiclass segmentation with non overlapping class masks (your classes + background)
-model3 = sm.Linknet('resnet34', classes=3, activation='softmax')
+model3 = sm.Linknet(
+    'resnet34', 
+    classes=3, 
+    activation='softmax'
+)
+
 # multiclass segmentation with independent overlapping/non-overlapping class masks
-model4 = sm.PSPNet('resnet34', classes=3, activation='sigmoid')
+model4 = sm.PSPNet(
+    'resnet34', 
+    classes=3,
+    activation='sigmoid'
+)
+
 # If you need to specify non-standard input shape
-model5 = sm.Unet('resnet50', input_shape=(96, 128, 128, 6), encoder_weights=None)
+model5 = sm.Unet(
+    'resnet50', 
+    input_shape=(96, 128, 128, 6), 
+    encoder_weights=None
+)
 ```
 
-All possible backbones: `'resnet18, 'resnet34', 'resnet50', 'resnet101', 'resnet152', 'seresnet18', 'seresnet34', 'seresnet50', 'seresnet101', 'seresnet152', 'seresnext50', 'seresnext101', 'senet154', 'resnext50', 'resnext101', 'vgg16', 'vgg19', 'densenet121', 'densenet169', 'densenet201', 'inceptionresnetv2', 'inceptionv3', 'mobilenet', 'mobilenetv2'`
-Also available: `'efficientnetb0', 'efficientnetb1', 'efficientnetb2', 'efficientnetb3', 'efficientnetb4', 'efficientnetb5', 'efficientnetb6', 'efficientnetb7'`
+All possible backbones: `
+'resnet18, 'resnet34', 'resnet50', 'resnet101', 'resnet152', 'seresnet18', 
+'seresnet34', 'seresnet50', 'seresnet101', 'seresnet152', 'seresnext50', 
+'seresnext101', 'senet154', 'resnext50', 'resnext101', 'vgg16', 'vgg19', 
+'densenet121', 'densenet169', 'densenet201', 'inceptionresnetv2', 
+'inceptionv3', 'mobilenet', 'mobilenetv2', 'efficientnetb0', 
+'efficientnetb1', 'efficientnetb2', 'efficientnetb3', 'efficientnetb4', 
+'efficientnetb5', 'efficientnetb6', 'efficientnetb7', 'efficientnetv2-b1', 
+'efficientnetv2-b2', 'efficientnetv2-b3', 'efficientnetv2-s', 
+'efficientnetv2-m', 'efficientnetv2-l'
+`
+
+More examples can be found in [tst_keras.py](tst_keras.py)
+
+### To Do List
+
+* Add `stride_size` parameter for better control of models
+* Add example of training, using this library
 
 ### Related repositories
 

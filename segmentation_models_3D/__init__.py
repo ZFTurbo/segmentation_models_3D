@@ -65,10 +65,8 @@ def set_framework(name):
 
     if name == _KERAS_FRAMEWORK_NAME:
         import keras
-        import efficientnet_3D.keras  # init custom objects
     elif name == _TF_KERAS_FRAMEWORK_NAME:
         from tensorflow import keras
-        import efficientnet_3D.tfkeras  # init custom objects
     else:
         raise ValueError('Not correct module name `{}`, use `{}` or `{}`'.format(
             name, _KERAS_FRAMEWORK_NAME, _TF_KERAS_FRAMEWORK_NAME))

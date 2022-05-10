@@ -1,9 +1,5 @@
 import copy
-import efficientnet_3D.model as eff
 from classification_models_3D.models_factory import ModelsFactory
-
-from . import inception_resnet_v2 as irv2
-from . import inception_v3 as iv3
 
 
 class BackbonesFactory(ModelsFactory):
@@ -70,20 +66,24 @@ class BackbonesFactory(ModelsFactory):
         'efficientnetb7': ('block6a_expand_activation', 'block4a_expand_activation',
                            'block3a_expand_activation', 'block2a_expand_activation'),
 
+        # EfficientNets v2
+        'efficientnetv2-b0': ('block6a_expand_activation', 'block4a_expand_activation',
+                             'block2b_add', 'block1a_project_activation'),
+        'efficientnetv2-b1': ('block6a_expand_activation', 'block4a_expand_activation',
+                             'block2b_add', 'block1a_project_activation'),
+        'efficientnetv2-b2': ('block6a_expand_activation', 'block4a_expand_activation',
+                             'block2b_add', 'block1a_project_activation'),
+        'efficientnetv2-b3': ('block6a_expand_activation', 'block4a_expand_activation',
+                             'block2b_add', 'block1a_project_activation'),
+        'efficientnetv2-s': ('block6a_expand_activation', 'block4a_expand_activation',
+                            'block2b_add', 'block1a_project_activation'),
+        'efficientnetv2-m': ('block6a_expand_activation', 'block4a_expand_activation',
+                            'block2b_add', 'block1a_project_activation'),
+        'efficientnetv2-l': ('block6a_expand_activation', 'block4a_expand_activation',
+                            'block2b_add', 'block1a_project_activation'),
     }
 
     _models_update = {
-        'inceptionresnetv2': [irv2.InceptionResNetV2, irv2.preprocess_input],
-        'inceptionv3': [iv3.InceptionV3, iv3.preprocess_input],
-
-        'efficientnetb0': [eff.EfficientNetB0, eff.preprocess_input],
-        'efficientnetb1': [eff.EfficientNetB1, eff.preprocess_input],
-        'efficientnetb2': [eff.EfficientNetB2, eff.preprocess_input],
-        'efficientnetb3': [eff.EfficientNetB3, eff.preprocess_input],
-        'efficientnetb4': [eff.EfficientNetB4, eff.preprocess_input],
-        'efficientnetb5': [eff.EfficientNetB5, eff.preprocess_input],
-        'efficientnetb6': [eff.EfficientNetB6, eff.preprocess_input],
-        'efficientnetb7': [eff.EfficientNetB7, eff.preprocess_input],
     }
 
     # currently not supported
