@@ -76,10 +76,16 @@ All possible backbones: `
 
 More examples can be found in [tst_keras.py](tst_keras.py)
 
+##### Training model:
+
+There is training example in [training_example.py](training_example.py)
+* I tried to keep code as simple as possible
+* I couldn't find good dataset for 3D segmentation task. So I randomly generate 3D volumes with dark background with light 
+figures (spheres and cuboids) and model tries to segment these figures independetly. 1st mask for circles and 2nd mask for cuboids.
+
 ### To Do List
 
 * Add `stride_size` parameter for better control of models
-* Add example of training, using this library
 
 ### Related repositories
 
