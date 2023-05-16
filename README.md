@@ -5,7 +5,7 @@ The repository contains 3D variants of popular models for segmentation like FPN,
 This repository is based on great [segmentation_models](https://github.com/qubvel/segmentation_models) repo by [@qubvel](https://github.com/qubvel/)
 
 ### Available architectures: 
--  [Unet](https://arxiv.org/abs/1505.04597>)
+-  [Unet](https://arxiv.org/abs/1505.04597)
 -  [FPN](http://presentations.cocodataset.org/COCO17-Stuff-FAIR.pdf)
 -  [Linknet](https://arxiv.org/abs/1707.03718)
 -  [PSPNet](https://arxiv.org/abs/1612.01105)
