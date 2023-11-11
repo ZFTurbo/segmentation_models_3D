@@ -15,7 +15,8 @@ import segmentation_models_3D as sm
 
 
 def tst_keras_simple():
-    encoder_weights = 'imagenet'
+    # encoder_weights = 'imagenet'
+    encoder_weights = None
     model1 = sm.Unet(
         'resnet18',
         input_shape=(64, 64, 64, 3),

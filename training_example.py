@@ -16,9 +16,9 @@ import numpy as np
 import random
 import matplotlib.pyplot as plt
 from skimage import measure
-from keras.optimizers import Adam
-from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, CSVLogger, EarlyStopping
-from keras import backend as K
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, CSVLogger, EarlyStopping
+from tensorflow.keras import backend as K
 
 
 def get_model_memory_usage(batch_size, model):
