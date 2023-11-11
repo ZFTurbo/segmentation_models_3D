@@ -12,9 +12,10 @@ This repository is based on great [segmentation_models](https://github.com/qubve
 
 ### Requirements
 
-* tensorflow>=2.8.0
-* keras_applications>=1.0.8
-* [classification_models_3D](https://github.com/ZFTurbo/classification_models_3D)>=1.0.6
+* tensorflow==2.8.0
+* keras==2.8.0
+* keras_applications==1.0.8
+* [classification_models_3D](https://github.com/ZFTurbo/classification_models_3D)==1.0.8
 
 
 ### Installation
