@@ -17,6 +17,7 @@ This repository is based on great [segmentation_models](https://github.com/qubve
 * keras_applications==1.0.8
 * [classification_models_3D](https://github.com/ZFTurbo/classification_models_3D)==1.0.8
 
+**Important note**: code tested with exactly these versions of modules.
 
 ### Installation
 
