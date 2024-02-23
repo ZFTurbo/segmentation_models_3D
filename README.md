@@ -85,6 +85,7 @@ figures (spheres and cuboids) and model tries to segment these figures independe
  * [https://github.com/qubvel/classification_models](https://github.com/qubvel/classification_models) - original classification 2D repo
  * [https://github.com/qubvel/segmentation_models](https://github.com/qubvel/segmentation_models) - original segmentation 2D repo
  * [classification_models_3D](https://github.com/ZFTurbo/classification_models_3D) - models for classification in 3D
+ * [segmentation_models_pytorch_3d](https://github.com/ZFTurbo/segmentation_models_pytorch_3d) - models for segmentation in 3D for Pytorch
  * [volumentations](https://github.com/ZFTurbo/volumentations) - 3D augmentations
  
 ### Unresolved problems
