@@ -7,7 +7,7 @@ if __name__ == '__main__':
 
     gpu_use = 0
     print('GPU use: {}'.format(gpu_use))
-    os.environ["KERAS_BACKEND"] = "tensorflow"
+    os.environ["KERAS_BACKEND"] = "jax"
     os.environ["CUDA_VISIBLE_DEVICES"] = "{}".format(gpu_use)
 
 
