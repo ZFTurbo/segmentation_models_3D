@@ -12,7 +12,7 @@ from __future__ import print_function
 
 import os
 
-from keras_applications import imagenet_utils
+from keras.applications import imagenet_utils
 from . import get_submodules_from_kwargs
 
 WEIGHTS_PATH = (
