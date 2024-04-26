@@ -3,6 +3,7 @@ from .. import get_submodules_from_kwargs
 from ._common_blocks import Conv3dBn
 from ._utils import freeze_model
 from ..backbones.backbones_factory import Backbones
+from keras.src.legacy.backend import int_shape
 
 backend = None
 layers = None
@@ -73,8 +74,8 @@ def DecoderUpsamplingX2Block(filters, stage, use_batchnorm):
     channels_axis = 4 if backend.image_data_format() == 'channels_last' else 1
 
     def wrapper(input_tensor, skip=None):
-        input_filters = backend.int_shape(input_tensor)[channels_axis]
-        output_filters = backend.int_shape(skip)[channels_axis] if skip is not None else filters
+        input_filters = int_shape(input_tensor)[channels_axis]
+        output_filters = int_shape(skip)[channels_axis] if skip is not None else filters
 
         x = Conv1x1BnReLU(input_filters // 4, use_batchnorm, name=conv_block1_name)(input_tensor)
         x = layers.UpSampling3D((2, 2, 2), name=up_name)(x)
@@ -99,8 +100,8 @@ def DecoderTransposeX2Block(filters, stage, use_batchnorm):
     channels_axis = bn_axis = 4 if backend.image_data_format() == 'channels_last' else 1
 
     def wrapper(input_tensor, skip=None):
-        input_filters = backend.int_shape(input_tensor)[channels_axis]
-        output_filters = backend.int_shape(skip)[channels_axis] if skip is not None else filters
+        input_filters = int_shape(input_tensor)[channels_axis]
+        output_filters = int_shape(skip)[channels_axis] if skip is not None else filters
 
         x = Conv1x1BnReLU(input_filters // 4, use_batchnorm, name=conv_block1_name)(input_tensor)
         x = layers.Conv3DTranspose(

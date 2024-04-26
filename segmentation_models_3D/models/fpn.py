@@ -3,6 +3,7 @@ from .. import get_submodules_from_kwargs
 from ._common_blocks import Conv3dBn
 from ._utils import freeze_model
 from ..backbones.backbones_factory import Backbones
+from keras.src.legacy.backend import int_shape
 
 backend = None
 layers = None
@@ -71,7 +72,7 @@ def FPNBlock(pyramid_filters, stage):
         # if input tensor channels not equal to pyramid channels
         # we will not be able to sum input tensor and skip
         # so add extra conv layer to transform it
-        input_filters = backend.int_shape(input_tensor)[channels_axis]
+        input_filters = int_shape(input_tensor)[channels_axis]
         if input_filters != pyramid_filters:
             input_tensor = layers.Conv3D(
                 filters=pyramid_filters,
