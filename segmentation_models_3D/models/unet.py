@@ -1,4 +1,4 @@
-from keras_applications import get_submodules_from_kwargs
+from .. import get_submodules_from_kwargs
 
 from ._common_blocks import Conv3dBn
 from ._utils import freeze_model
@@ -213,7 +213,7 @@ def Unet(
     """
 
     global backend, layers, models, keras_utils
-    backend, layers, models, keras_utils = get_submodules_from_kwargs(kwargs)
+    backend, layers, models, keras_utils, _, _ = get_submodules_from_kwargs(kwargs)
 
     if decoder_block_type == 'upsampling':
         decoder_block = DecoderUpsamplingX2Block

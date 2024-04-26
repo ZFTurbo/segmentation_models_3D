@@ -1,7 +1,6 @@
 """ Utility functions for segmentation models """
 
-from keras_applications import get_submodules_from_kwargs
-from . import inject_global_submodules
+from . import inject_global_submodules, get_submodules_from_kwargs
 
 
 def set_trainable(model, recompile=True, **kwargs):
@@ -63,7 +62,7 @@ def set_regularization(
     Return:
         out (``Model``): config updated model
     """
-    _, _, models, _ = get_submodules_from_kwargs(kwargs)
+    _, _, models, _, _, _ = get_submodules_from_kwargs(kwargs)
 
     for layer in model.layers:
         # set kernel_regularizer

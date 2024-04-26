@@ -3,12 +3,16 @@ class KerasObject:
     _models = None
     _layers = None
     _utils = None
+    _ops = None
+    _metrics = None
 
     def __init__(self, name=None):
         if (self.backend is None or
                 self.utils is None or
                 self.models is None or
-                self.layers is None):
+                self.layers is None or
+                self.ops is None or
+                self.metrics is None):
             raise RuntimeError('You cannot use `KerasObjects` with None submodules.')
 
         self._name = name
@@ -28,11 +32,13 @@ class KerasObject:
         self._name = name
 
     @classmethod
-    def set_submodules(cls, backend, layers, models, utils):
+    def set_submodules(cls, backend, layers, models, utils, ops, metrics):
         cls._backend = backend
         cls._layers = layers
         cls._models = models
         cls._utils = utils
+        cls._ops = ops
+        cls._metrics = metrics
 
     @property
     def submodules(self):
@@ -41,6 +47,8 @@ class KerasObject:
             'layers': self.layers,
             'models': self.models,
             'utils': self.utils,
+            'ops': self.ops,
+            'metrics': self.metrics
         }
 
     @property
@@ -58,6 +66,14 @@ class KerasObject:
     @property
     def utils(self):
         return self._utils
+
+    @property
+    def ops(self):
+        return self._ops
+
+    @property
+    def metrics(self):
+        return self._metrics
 
 
 class Metric(KerasObject):

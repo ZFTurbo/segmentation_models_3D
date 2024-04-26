@@ -17,7 +17,7 @@ from __future__ import print_function
 import os
 
 from keras_applications import imagenet_utils
-from keras_applications import get_submodules_from_kwargs
+from . import get_submodules_from_kwargs
 
 BASE_WEIGHT_URL = ('https://github.com/fchollet/deep-learning-models/'
                    'releases/download/v0.7/')
@@ -204,7 +204,7 @@ def InceptionResNetV2(include_top=True,
             or invalid input shape.
     """
     global backend, layers, models, keras_utils
-    backend, layers, models, keras_utils = get_submodules_from_kwargs(kwargs)
+    backend, layers, models, keras_utils, _, _ = get_submodules_from_kwargs(kwargs)
 
     if not (weights in {'imagenet', None} or os.path.exists(weights)):
         raise ValueError('The `weights` argument should be either '

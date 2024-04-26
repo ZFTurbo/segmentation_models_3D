@@ -1,4 +1,4 @@
-from keras_applications import get_submodules_from_kwargs
+from .. import get_submodules_from_kwargs
 
 
 def Conv3dBn(
@@ -23,7 +23,7 @@ def Conv3dBn(
 
     conv_name, act_name, bn_name = None, None, None
     block_name = kwargs.pop('name', None)
-    backend, layers, models, keras_utils = get_submodules_from_kwargs(kwargs)
+    backend, layers, models, keras_utils, _, _ = get_submodules_from_kwargs(kwargs)
 
     if block_name is not None:
         conv_name = block_name + '_conv'
