@@ -14,9 +14,7 @@ setup(
                      'Models work with keras and tensorflow.keras.'
                      'More details: https://github.com/ZFTurbo/segmentation_models_3D',
     install_requires=[
-        'tensorflow>=2.13.0,<=2.15.0',
-        'keras==2.13.1',
-        "keras_applications==1.0.8",
+        'keras>=3.0.0',
         "classification_models_3D==1.0.10",
     ],
 )
