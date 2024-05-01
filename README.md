@@ -1,4 +1,4 @@
-# Segmentation models 3D Zoo - Keras and TF.Keras
+# Segmentation models 3D Zoo for Keras
 
 The repository contains 3D variants of popular models for segmentation like FPN, Unet, Linknet and PSPNet. 
 
@@ -91,7 +91,13 @@ figures (spheres and cuboids) and model tries to segment these figures independe
 ### Unresolved problems
 
 * There is no 'bilinear' interpolation for UpSample3D layer, so it uses Nearest Neighbour upsampling.
- 
+
+### Older versions
+
+Last version which supports Keras 2 is 1.0.7
+
+`pip install segmentation-models-3D==1.0.7`
+
 ## Citation
 
 For more details, please refer to the publication: https://doi.org/10.1016/j.compbiomed.2021.105089
