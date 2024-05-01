@@ -1,4 +1,4 @@
-# Segmentation models 3D Zoo for Keras
+# Segmentation models 3D Zoo for Keras 3
 
 The repository contains 3D variants of popular models for segmentation like FPN, Unet, Linknet and PSPNet. 
 
