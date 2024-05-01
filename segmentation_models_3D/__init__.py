@@ -13,6 +13,21 @@ _KERAS_LAYERS = None
 _KERAS_MODELS = None
 _KERAS_UTILS = None
 _KERAS_LOSSES = None
+_KERAS_OPS = None
+_KERAS_METRICS = None
+
+
+def get_submodules_from_kwargs(kwargs):
+    backend = kwargs.get('backend', _KERAS_BACKEND)
+    layers = kwargs.get('layers', _KERAS_LAYERS)
+    models = kwargs.get('models', _KERAS_MODELS)
+    utils = kwargs.get('utils', _KERAS_UTILS)
+    ops = kwargs.get('ops', _KERAS_OPS)
+    metrics = kwargs.get('metrics', _KERAS_METRICS)
+    for key in kwargs.keys():
+        if key not in ['backend', 'layers', 'models', 'utils', 'ops', 'metrics']:
+            raise TypeError('Invalid keyword argument: %s', key)
+    return backend, layers, models, utils, ops, metrics
 
 
 def inject_global_losses(func):
@@ -31,6 +46,8 @@ def inject_global_submodules(func):
         kwargs['layers'] = _KERAS_LAYERS
         kwargs['models'] = _KERAS_MODELS
         kwargs['utils'] = _KERAS_UTILS
+        kwargs['ops'] = _KERAS_OPS
+        kwargs['metrics'] = _KERAS_METRICS
         return func(*args, **kwargs)
 
     return wrapper
@@ -39,7 +56,7 @@ def inject_global_submodules(func):
 def filter_kwargs(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
-        new_kwargs = {k: v for k, v in kwargs.items() if k in ['backend', 'layers', 'models', 'utils']}
+        new_kwargs = {k: v for k, v in kwargs.items() if k in ['backend', 'layers', 'models', 'utils', 'ops', 'metrics']}
         return func(*args, **new_kwargs)
 
     return wrapper
@@ -71,7 +88,7 @@ def set_framework(name):
         raise ValueError('Not correct module name `{}`, use `{}` or `{}`'.format(
             name, _KERAS_FRAMEWORK_NAME, _TF_KERAS_FRAMEWORK_NAME))
 
-    global _KERAS_BACKEND, _KERAS_LAYERS, _KERAS_MODELS
+    global _KERAS_BACKEND, _KERAS_LAYERS, _KERAS_MODELS, _KERAS_OPS, _KERAS_METRICS
     global _KERAS_UTILS, _KERAS_LOSSES, _KERAS_FRAMEWORK
 
     _KERAS_FRAMEWORK = name
@@ -80,6 +97,8 @@ def set_framework(name):
     _KERAS_MODELS = keras.models
     _KERAS_UTILS = keras.utils
     _KERAS_LOSSES = keras.losses
+    _KERAS_OPS = keras.ops
+    _KERAS_METRICS = keras.metrics
 
     # allow losses/metrics get keras submodules
     base.KerasObject.set_submodules(
@@ -87,6 +106,8 @@ def set_framework(name):
         layers=keras.layers,
         models=keras.models,
         utils=keras.utils,
+        ops=keras.ops,
+        metrics=keras.metrics
     )
 
 
