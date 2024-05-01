@@ -26,7 +26,7 @@ model1 = sm.Unet(
     encoder_weights='imagenet'
 )
 
-# binary segmentation (this parameters are default when you call Unet('resnet34')
+# binary segmentation (these parameters are default when you call Unet('resnet34')
 model2 = sm.FPN(
     'densenet121', 
     classes=1, 
@@ -67,11 +67,15 @@ All possible backbones: `
 'efficientnetv2-m', 'efficientnetv2-l'
 `
 
-More examples can be found in [tst_keras.py](tst_keras.py)
+More examples can be found in: 
+- Tensorflow: [tst_keras_tensorflow.py](tst_keras_tensorflow.py)
+- Torch: [tst_keras_torch.py](tst_keras_torch.py)
+- Jax: [tst_keras_jax.py](tst_keras_jax.py)
+
 
 ##### Training model:
 
-There is training example in [training_example.py](training_example.py)
+There is training example in [training_example_tensorflow.py](training_example_tensorflow.py)
 * I tried to keep code as simple as possible
 * I couldn't find good dataset for 3D segmentation task. So I randomly generate 3D volumes with dark background with light 
 figures (spheres and cuboids) and model tries to segment these figures independetly. 1st mask for circles and 2nd mask for cuboids.
