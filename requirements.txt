@@ -1,2 +1,3 @@
-keras==3.3.3
-classification_models_3D==1.1.0
+tensorflow>=2.16.1
+keras>=3.0.0
+classification_models_3D>=1.1.0
