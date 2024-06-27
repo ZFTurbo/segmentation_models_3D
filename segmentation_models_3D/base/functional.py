@@ -282,7 +282,7 @@ def categorical_focal_loss(gt, pr, gamma=2.0, alpha=0.25, class_indexes=None, **
     # clip to prevent NaN's and Inf's
     pr = ops.clip(pr, backend.epsilon(), 1.0 - backend.epsilon())
 
-    # Calculate focal loss
+    # Calculate focal  loss
     loss = - gt * (alpha * ops.power((1 - pr), gamma) * ops.log(pr))
 
     return ops.mean(loss)
