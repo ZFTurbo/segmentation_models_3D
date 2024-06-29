@@ -308,7 +308,7 @@ def binary_focal_loss(gt, pr, gamma=2.0, alpha=0.25, **kwargs):
     # clip to prevent NaN's and Inf's
     pr = ops.clip(pr, backend.epsilon(), 1.0 - backend.epsilon())
 
-    loss_1 = - gt * (alpha * ops.pow((1 - pr), gamma) * ops.log(pr))
-    loss_0 = - (1 - gt) * ((1 - alpha) * ops.pow((pr), gamma) * ops.log(1 - pr))
+    loss_1 = - gt * (alpha * ops.power((1 - pr), gamma) * ops.log(pr))
+    loss_0 = - (1 - gt) * ((1 - alpha) * ops.power((pr), gamma) * ops.log(1 - pr))
     loss = ops.mean(loss_0 + loss_1)
     return loss
