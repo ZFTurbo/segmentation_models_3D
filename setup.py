@@ -5,7 +5,7 @@ except ImportError:
 
 setup(
     name='segmentation_models_3D',
-    version='1.1.0',
+    version='1.1.1',
     author='Roman Sol (ZFTurbo)',
     packages=['segmentation_models_3D', 'segmentation_models_3D/backbones', 'segmentation_models_3D/base', 'segmentation_models_3D/models'],
     url='https://github.com/ZFTurbo/segmentation_models_3D',
